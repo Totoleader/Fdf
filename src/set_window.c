@@ -6,7 +6,7 @@
 /*   By: macote <macote@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 12:29:43 by macote            #+#    #+#             */
-/*   Updated: 2023/03/28 11:39:34 by macote           ###   ########.fr       */
+/*   Updated: 2023/04/03 11:20:04 by macote           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static void	ft_error(void)
 {
-	fprintf(stderr, "%s", mlx_strerror(mlx_errno));
 	exit(EXIT_FAILURE);
 }
 

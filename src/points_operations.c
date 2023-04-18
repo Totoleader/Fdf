@@ -6,7 +6,7 @@
 /*   By: macote <macote@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 13:53:58 by macote            #+#    #+#             */
-/*   Updated: 2023/03/29 14:19:46 by macote           ###   ########.fr       */
+/*   Updated: 2023/04/07 11:13:55 by macote           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ static void	center_points(t_setting fdf, int i)
 	float	center_x;
 	float	center_y;
 
-	center_x = (WIDTH / 2) - fdf.dim_x + 0.5 + fdf.center_x;
-	center_y = (HEIGHT / 2) - fdf.dim_y / 2 + 0.5 + fdf.center_y;
+	center_x = (WIDTH / 2) + fdf.center_x + 0.5;
+	center_y = (HEIGHT / 2) - (2 * fdf.dim_y) + fdf.center_y + 0.5;
 	fdf.points[i].x += (int)center_x;
 	fdf.points[i].y += (int)center_y;
 }

@@ -6,7 +6,7 @@
 /*   By: macote <macote@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 10:29:56 by macote            #+#    #+#             */
-/*   Updated: 2023/03/29 14:17:00 by macote           ###   ########.fr       */
+/*   Updated: 2023/04/07 11:18:02 by macote           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,19 +47,23 @@ void	key_hook(mlx_key_data_t keydata, void *param)
 	t_setting	*fdf;
 
 	fdf = (t_setting *)param;
-	translate(keydata, fdf);
-	change_rotation(keydata, fdf);
-	if (keydata.key == MLX_KEY_P && keydata.action == MLX_PRESS)
+	if (keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_A
+		|| keydata.key == MLX_KEY_S || keydata.key == MLX_KEY_D)
+		translate(keydata, fdf);
+	else if (keydata.key == MLX_KEY_UP || keydata.key == MLX_KEY_DOWN
+		|| keydata.key == MLX_KEY_LEFT || keydata.key == MLX_KEY_RIGHT)
+		change_rotation(keydata, fdf);
+	else if (keydata.key == MLX_KEY_P && keydata.action == MLX_PRESS)
 		line_to_point(fdf);
-	if (keydata.key == MLX_KEY_C && keydata.action == MLX_PRESS)
+	else if (keydata.key == MLX_KEY_C && keydata.action == MLX_PRESS)
 		reset(fdf);
-	if (keydata.key == MLX_KEY_X && keydata.action == MLX_PRESS)
+	else if (keydata.key == MLX_KEY_X && keydata.action == MLX_PRESS)
 		enable_cross(fdf);
-	if (keydata.key == MLX_KEY_Q && keydata.action == MLX_PRESS)
+	else if (keydata.key == MLX_KEY_Q && keydata.action == MLX_PRESS)
 		change_colors(fdf);
-	if (keydata.key == MLX_KEY_V && keydata.action == MLX_PRESS)
+	else if (keydata.key == MLX_KEY_V && keydata.action == MLX_PRESS)
 		projection_type(fdf);
-	if (keydata.key == MLX_KEY_ESCAPE)
+	else if (keydata.key == MLX_KEY_ESCAPE)
 		mlx_close_window(fdf->mlx);
 }
 

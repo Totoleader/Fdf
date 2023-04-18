@@ -6,7 +6,7 @@
 /*   By: macote <macote@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 10:05:24 by macote            #+#    #+#             */
-/*   Updated: 2023/03/29 14:03:34 by macote           ###   ########.fr       */
+/*   Updated: 2023/03/29 15:17:40 by macote           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ui_instructions(mlx_t *mlx)
 	mlx_put_string(mlx, "Enable cross:  X", x, y + (i++ *newline));
 	mlx_put_string(mlx, "Points mode:   P", x, y + (i++ *newline));
 	mlx_put_string(mlx, "Reset screen:  C", x, y + (i++ *newline));
-	mlx_put_string(mlx, "Change vue:    V", x, y + (i++ *newline));
+	mlx_put_string(mlx, "Change view:   V", x, y + (i++ *newline));
 	mlx_put_string(mlx, "Change color:  Q", x, y + (i++ *newline));
 }
 

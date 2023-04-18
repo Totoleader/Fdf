@@ -6,7 +6,7 @@
 /*   By: macote <macote@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 11:37:29 by macote            #+#    #+#             */
-/*   Updated: 2023/03/29 14:18:54 by macote           ###   ########.fr       */
+/*   Updated: 2023/04/07 11:42:45 by macote           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 void	init_fdf_values(t_setting *fdf, int fd)
 {
-	fdf->zoom = 30;
+	fdf->zoom = 10;
 	fdf->points_init = parse_to_struct(fd, &fdf->points);
+	if (!fdf->points_init)
+		return ;
 	get_dimensions(fdf->points_init, &fdf->dim_x, &fdf->dim_y);
 	fdf->points = ft_calloc(sizeof(mlx_instance_t), (fdf->dim_x * fdf->dim_y
 				+ 1));
@@ -44,7 +46,14 @@ void	fdf(char *map)
 	int			fd;
 
 	fd = open(map, O_RDONLY);
+	if (fd < 0)
+	{
+		perror("File not found.");
+		return ;
+	}
 	init_fdf_values(&fdf, fd);
+	if (!fdf.points_init)
+		return ;
 	set_window(&fdf.mlx, &fdf.img);
 	draw_cross(fdf);
 	points_operations(fdf);
